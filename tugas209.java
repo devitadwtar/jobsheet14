@@ -2,24 +2,28 @@ import java.util.Scanner;
 
 public class tugas209 {
 
-    static int penjumlahanRekursif(int n) {
-        if (n == 0) {
-            return 0;
+    public static int penjumlahan(int n) {
+        if (n == 1) {
+            return 1;
         } else {
-            return n + penjumlahanRekursif(n - 1);
+            return n + penjumlahan(n - 1);
         }
     }
 
     public static void main(String[] args) {
-        Scanner sc09 = new Scanner(System.in);
-
+        Scanner sc = new Scanner(System.in);
         System.out.print("Masukkan nilai n: ");
-        int n = sc09.nextInt();
+        int n = sc.nextInt();
 
-        int hasilPenjumlahan = penjumlahanRekursif(n);
+        int total = penjumlahan(n);
+        System.out.println("Hasil penjumlahan bilangan dari 1 sampai " + n + " adalah " + total);
 
-        System.out.println("Penjumlahan dari 1 sampai " + n + " = " + hasilPenjumlahan);
-
-        sc09.close();
+        System.out.println("Proses penjumlahan:");
+        int hasil = 0;
+        for (int i = 1; i <= n; i++) {
+            hasil += i;
+            System.out.print(i + " + ");
+        }
+        System.out.print("= " + hasil);
     }
 }
